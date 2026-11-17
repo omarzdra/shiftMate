@@ -86,8 +86,8 @@ Projekt uporablja večplastno arhitekturo:
 ### Namestitev
 
 ```bash
-git clone https://github.com/omarzdra/shiftmate-business.git
-cd shiftmate-business
+git clone https://github.com/omarzdra/shiftMate.git
+cd shiftMate
 flutter pub get
 ```
 
