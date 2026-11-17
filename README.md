@@ -137,7 +137,7 @@ Konfiguracija je v `.github/workflows/flutter-ci.yml`.
 
 Podrobnejša projektna dokumentacija se nahaja v mapi `dokumentacija/`.
 
-- [Prototipna dokumentacija](dokumentacija/prototipna-dokumentacija.md)
+- [Prototipna dokumentacija](dokumentacija/prototipna_dokumentacija.md)
 - [Mockupi](dokumentacija/mockupi/)
 - [Diagrami](dokumentacija/prototipna-dokumentacija.md)
 
