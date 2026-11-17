@@ -1,0 +1,397 @@
+{
+  "version": 2,
+  "skills": {
+    "dart-concurrency": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/dart-concurrency/SKILL.md",
+      "computedHash": "e8fce68db4a7f549b8573436c1e7297e2cede68ce0ca9554fc26bed0bd2b21f3",
+      "installMode": "copy"
+    },
+    "dart-language": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/dart-language/SKILL.md",
+      "computedHash": "8d19144f5532e16c29243f9c1cf1e1582612bada695c7ae8597c676d7afda665",
+      "installMode": "copy"
+    },
+    "dart-run-static-analysis": {
+      "source": "flutter/agent-plugins",
+      "commit": "17fe9182f4c462d69d6a7963aef01b44b1f7f189",
+      "sourceType": "github",
+      "skillPath": "skills/dart-run-static-analysis/SKILL.md",
+      "computedHash": "fa93216b2e985fe86cffbc7f9734361205cbe6c7c8d46b21a87beea19bea2066",
+      "installMode": "copy"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "e1b377ccde1d32743d1d3f7d8626629deb8055c9114d180c184697928cc66cc6",
+      "installMode": "copy"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f",
+      "installMode": "copy"
+    },
+    "flutter-accessibility": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-accessibility/SKILL.md",
+      "computedHash": "26f76cb032b8c87ece1e30de5d874876c36535c52b5bed30f5d4d719c14bdde0",
+      "installMode": "copy"
+    },
+    "flutter-add-widget-test": {
+      "source": "flutter/agent-plugins",
+      "commit": "17fe9182f4c462d69d6a7963aef01b44b1f7f189",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-add-widget-test/SKILL.md",
+      "computedHash": "5cfab5fd20d6b84e28e9b9cc278ac0c3fb2c89a7e850f2b900749b14cb367bbf",
+      "installMode": "copy"
+    },
+    "flutter-ai-integration": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-ai-integration/SKILL.md",
+      "computedHash": "54cf804d4034e3351939e5e2005b719d4b2187ebe5304379468e1ac9bf2cc3fc",
+      "installMode": "copy"
+    },
+    "flutter-animation": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-animation/SKILL.md",
+      "computedHash": "436c41ec7c17ee1751d6f0814c0020ddc60908b3fc3de29f91a85eeff057ff3f",
+      "installMode": "copy"
+    },
+    "flutter-app-workflow": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-app-workflow/SKILL.md",
+      "computedHash": "a5a7e8453a177b91dcc22cdda15805c0e5d2329eae716dcf0c5cae16d5eea0df",
+      "installMode": "copy"
+    },
+    "flutter-apply-architecture-best-practices": {
+      "source": "flutter/agent-plugins",
+      "commit": "17fe9182f4c462d69d6a7963aef01b44b1f7f189",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-apply-architecture-best-practices/SKILL.md",
+      "computedHash": "a41b999109cc3c2dc79ddbc05b5fd5f39ed08d5c6c17dab728a6b926d3a504de",
+      "installMode": "copy"
+    },
+    "flutter-architecture": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-architecture/SKILL.md",
+      "computedHash": "c21bfc0d2eb17610f326760b07072ef345c24bd5ee44149356eb4a6deb6f3edf",
+      "installMode": "copy"
+    },
+    "flutter-authentication": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-authentication/SKILL.md",
+      "computedHash": "b686e8af76b20b3538c9f787b06cba7f0855521642722b09771689cd34f10411",
+      "installMode": "copy"
+    },
+    "flutter-background-execution": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-background-execution/SKILL.md",
+      "computedHash": "23750431915b46534a8ec4f335e22d8bd4801571f65f9938eed01e4711d66a22",
+      "installMode": "copy"
+    },
+    "flutter-build-release": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-build-release/SKILL.md",
+      "computedHash": "7aeb8965b61af01491157b22295b88efbccd5a2fc12bab23b942f2fd12e0ef3a",
+      "installMode": "copy"
+    },
+    "flutter-ci-cd": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-ci-cd/SKILL.md",
+      "computedHash": "319b03fbd0b867a83be2af91b5d7f047c2f981102112df8f33c051c9a6468fab",
+      "installMode": "copy"
+    },
+    "flutter-code-review": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-code-review/SKILL.md",
+      "computedHash": "40dda784c62121f6c6492033019fc3c4659ac3d5f942d8b6c80afa73cdf2a36c",
+      "installMode": "copy"
+    },
+    "flutter-dependency-upgrades": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-dependency-upgrades/SKILL.md",
+      "computedHash": "979653be511736a8fd110eeabf23bee8a626c4f11c5a75412dbe9af69bef7cc5",
+      "installMode": "copy"
+    },
+    "flutter-device-testing": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-device-testing/SKILL.md",
+      "computedHash": "f244669bd1793b8dedcf0c4a895aaee5b38c3f5f448dd74d94c51b4b92a988e2",
+      "installMode": "copy"
+    },
+    "flutter-figma-workflow": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-figma-workflow/SKILL.md",
+      "computedHash": "876034dabbd9519e720a3a5116977615c454b07585bbd59e1353d2aacaad2c6b",
+      "installMode": "copy"
+    },
+    "flutter-in-app-purchases": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-in-app-purchases/SKILL.md",
+      "computedHash": "dec1b798e46ba8ca17c9f4d1340865c73fad563b18b6b550464dc479ff43b7ec",
+      "installMode": "copy"
+    },
+    "flutter-localization": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-localization/SKILL.md",
+      "computedHash": "d2dbdc970dcc256c58ffebd566cefd421ddae472eba9c3dea42ed3889e3f81ae",
+      "installMode": "copy"
+    },
+    "flutter-location-maps": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-location-maps/SKILL.md",
+      "computedHash": "d0c364a798c448b8cc3d165031f00a6d913969079a6f0cc17458eefcdafa5bee",
+      "installMode": "copy"
+    },
+    "flutter-media": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-media/SKILL.md",
+      "computedHash": "d5b86e663539930f82b12cdf3bd9a8cb23dbcafdb9a967ec1716aad2510df17d",
+      "installMode": "copy"
+    },
+    "flutter-navigation": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-navigation/SKILL.md",
+      "computedHash": "49af57e0321bebd4e4acaf9f3db00982ec88196f5968d9729e3d2eef057732eb",
+      "installMode": "copy"
+    },
+    "flutter-networking": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-networking/SKILL.md",
+      "computedHash": "35536bbc5fd245b8f8bc1b8343174a71d1c7bff7a5123207cae905a3f45dccbf",
+      "installMode": "copy"
+    },
+    "flutter-notifications": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-notifications/SKILL.md",
+      "computedHash": "63221cabe07d5e09e90d46783e578292ad460bdd02b62496308f6c702ddc192b",
+      "installMode": "copy"
+    },
+    "flutter-observability": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-observability/SKILL.md",
+      "computedHash": "95e2d25762ed708b055963421b346a0eebb071f97882dba340797fdcfb680f55",
+      "installMode": "copy"
+    },
+    "flutter-openapi-client": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-openapi-client/SKILL.md",
+      "computedHash": "6398dd7c59c46da44ad56c68234337615caa7bff9f4dc0473a63abe5f073a837",
+      "installMode": "copy"
+    },
+    "flutter-package-development": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-package-development/SKILL.md",
+      "computedHash": "ee998cfb354f0419a4d174c1342284f6d9d5c7da71a567f1dfa2e49fa7de2705",
+      "installMode": "copy"
+    },
+    "flutter-payments-checkout": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-payments-checkout/SKILL.md",
+      "computedHash": "c111abbfa35fe0a4467601e3c4e61323c538a938a6a961a2d7452ad3e248aeae",
+      "installMode": "copy"
+    },
+    "flutter-performance": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-performance/SKILL.md",
+      "computedHash": "f1fb078ae9f296c067f7e70d316eddce42e5942e791142c82a08278ea24da44c",
+      "installMode": "copy"
+    },
+    "flutter-persistence": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-persistence/SKILL.md",
+      "computedHash": "a4ba024e809401b064df8b6b369d68879aa9d5315878650feec9ed2593dea7ce",
+      "installMode": "copy"
+    },
+    "flutter-platform-integration": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-platform-integration/SKILL.md",
+      "computedHash": "cd7beb53d35d9db4057514dc840e0daab77743d0f794df7e6d4742b51a389315",
+      "installMode": "copy"
+    },
+    "flutter-product-analytics": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-product-analytics/SKILL.md",
+      "computedHash": "5f92d8f780e72921d847378add8fb40072baadac8e4f7eab5e55efbc39661151",
+      "installMode": "copy"
+    },
+    "flutter-responsive-layout": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-responsive-layout/SKILL.md",
+      "computedHash": "c4c24fff0d340bced1cc8e2450b1b516b551bdf029693d2c472196d60e03e12f",
+      "installMode": "copy"
+    },
+    "flutter-runtime-debugging": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-runtime-debugging/SKILL.md",
+      "computedHash": "8e2b44f4c7225b07917844bc2d862e9a50c2830ab6c5399ba06bb9a68e7552a5",
+      "installMode": "copy"
+    },
+    "flutter-security": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-security/SKILL.md",
+      "computedHash": "6b0074c2548af91f6e3673042fcaaca4f2799148acdd50baf1d00e1ff67443c9",
+      "installMode": "copy"
+    },
+    "flutter-state-management": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-state-management/SKILL.md",
+      "computedHash": "8e134ade9d645f8bf32a8d3a93fe4f3ed14e31039da43c824fb4f3e3ae59016c",
+      "installMode": "copy"
+    },
+    "flutter-testing": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-testing/SKILL.md",
+      "computedHash": "6c4204588d3492bbeb19eeb495a962353ff2b9a5c99f8754f0087bbf35d53c07",
+      "installMode": "copy"
+    },
+    "flutter-text-rendering": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-text-rendering/SKILL.md",
+      "computedHash": "744ad787b7a9a7ea4a791b3b5a02c98f4017eea0ff362f97fa469dbb9ce5d6fe",
+      "installMode": "copy"
+    },
+    "flutter-ui-design": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-ui-design/SKILL.md",
+      "computedHash": "7d51a291f9fcdb4d52f25b633f36223308606ba5c838df1dbbff6c0bf4eb555e",
+      "installMode": "copy"
+    },
+    "flutter-ui-patterns": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-ui-patterns/SKILL.md",
+      "computedHash": "23947dec4eb459afd8f132ec74d0399b187a9f1a2df774414e2ef2304ea4c60e",
+      "installMode": "copy"
+    },
+    "flutter-visual-effects": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-visual-effects/SKILL.md",
+      "computedHash": "727155d6c285685e49275492a415345b36144302c5819ed69265baa8fb9d5d2d",
+      "installMode": "copy"
+    },
+    "flutter-webview": {
+      "source": "thienqo/flutter-skills",
+      "commit": "0979e054a897dcad0914a78974ff2f5f3efb82fa",
+      "sourceType": "github",
+      "skillPath": "skills/flutter-webview/SKILL.md",
+      "computedHash": "9a236528f401d54025bd2ea0bc8b5be70bf26f67fb0ac0dc9be44b96f8aa15d0",
+      "installMode": "copy"
+    },
+    "github-actions-efficiency": {
+      "source": "github/awesome-copilot",
+      "commit": "a06ba06d11f41b996f8c246e2a452e1bf3a17950",
+      "sourceType": "github",
+      "skillPath": "skills/github-actions-efficiency/SKILL.md",
+      "computedHash": "1e29703ead16150c7a746ba4eaba1680239636f3da1a616adf4a58b06943c874",
+      "installMode": "copy"
+    },
+    "supabase": {
+      "source": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "sourceType": "github",
+      "skillPath": "skills/supabase/SKILL.md",
+      "computedHash": "2fbff32fd63b7d31585cacf0ed43e5bf8d05dd20d6c0c751d256cb967a00eec1",
+      "installMode": "copy"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "sourceType": "github",
+      "skillPath": "skills/supabase-postgres-best-practices/SKILL.md",
+      "computedHash": "3eb972c2d7c818e544e35cc33ea8d7147d4d78ae08142ef40037b0fbac7a2505",
+      "installMode": "copy"
+    },
+    "verification-before-completion": {
+      "source": "obra/superpowers",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "sourceType": "github",
+      "skillPath": "skills/verification-before-completion/SKILL.md",
+      "computedHash": "09b0e3a4689c1c38a3b8fc6ef57a1d4165aa33c0013d546dbde9dd348941a319",
+      "installMode": "copy"
+    }
+  }
+}
