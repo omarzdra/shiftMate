@@ -1,34 +1,106 @@
-name: Flutter CI
-
+﻿name: Flutter CI
 on:
   push:
-    branches: ["main"]
   pull_request:
-    branches: ["main"]
-
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: flutter-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  test:
+  database:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: local-ci-only
+          POSTGRES_DB: shiftmate_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d shiftmate_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: local-ci-only
+      PGDATABASE: shiftmate_test
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+      - name: Simulate Auth identity in disposable PostgreSQL
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/auth_stub.sql
+      - name: Apply migrations
+        run: |
+          for migration in supabase/migrations/*.sql; do
+            psql -v ON_ERROR_STOP=1 -f "$migration"
+          done
+      - name: Verify RLS and atomic scheduling
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/rls.sql
+  test-and-build:
+    needs: database
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
         with:
-          flutter-version: "3.47.7"
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.7'
           channel: stable
           cache: true
-
+          cache-key: flutter-3.47.7-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pubspec.lock') }}
       - name: Install dependencies
-        run: flutter pub get
-
+        run: flutter pub get --enforce-lockfile
       - name: Check formatting
         run: dart format --output=none --set-exit-if-changed .
-
       - name: Analyze project
         run: flutter analyze
-
-      - name: Run tests
-        run: flutter test
+      - name: Unit and widget tests
+        run: flutter test --coverage
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ github.sha }}
+          path: coverage/lcov.info
+          if-no-files-found: error
+          retention-days: 14
+      - name: Build debug APK
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL || secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY || secrets.SUPABASE_PUBLISHABLE_KEY }}
+        shell: bash
+        run: |
+          if [[ -n "$SUPABASE_URL" && -n "$SUPABASE_PUBLISHABLE_KEY" ]]; then
+            python3 - <<'PY'
+          import json, os
+          with open('/tmp/shiftmate-defines.json', 'w') as config:
+              json.dump({name: os.environ[name] for name in ('SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY')}, config)
+          PY
+            flutter build apk --debug --dart-define-from-file=/tmp/shiftmate-defines.json
+            echo "APK vsebuje Supabase konfiguracijo; omrežno delovanje ni preverjeno." > build/app/outputs/flutter-apk/BUILD_STATUS.txt
+          elif [[ -z "$SUPABASE_URL" && -z "$SUPABASE_PUBLISHABLE_KEY" ]]; then
+            flutter build apk --debug
+            echo "Tehnična gradnja brez Supabase konfiguracije. Prikazan bo zaslon Priprava povezave." > build/app/outputs/flutter-apk/BUILD_STATUS.txt
+          else
+            echo "Nastavi obe spremenljivki Supabase ali nobene."
+            exit 1
+          fi
+          cat build/app/outputs/flutter-apk/BUILD_STATUS.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: shiftmate-debug-${{ github.sha }}
+          path: |
+            build/app/outputs/flutter-apk/app-debug.apk
+            build/app/outputs/flutter-apk/BUILD_STATUS.txt
+          if-no-files-found: error
+          retention-days: 14
