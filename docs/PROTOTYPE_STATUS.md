@@ -20,7 +20,7 @@ Iz začetne aplikacije z enim zaslonom je nastala implementacija prototipa za de
 | Avtomatizirana gradnja | Lokalni in gostovani debug APK zgrajena; APK artifact naložen |
 | GitHub Actions | Objavljen workflow; rezultat gostovanega zagona je naveden spodaj |
 | Zgodovina razvoja | Feature veja in ločeni logični commiti, brez prepisovanja zgodovine |
-| Issues in Pull Requests | Obstoječe naloge pregledane; posodobitve in PR blokirani z dovoljenji, pripravljena ročna predaja |
+| Issues in Pull Requests | Ustvarjen draft PR #13; Issues #3–#12 posodobljeni z dokazi in preostalimi kriteriji |
 | Dokumentacija dejanskega stanja | README, ta pregled, diagrami in navodila za demonstracijo |
 
 Mejnik zahteva še dejanski razvojni Supabase projekt in demonstracijo omrežnega procesa. Dokler to ni izvedeno, vseh kriterijev ni mogoče označiti kot izpolnjenih.
@@ -87,7 +87,7 @@ Ponovljivi ukazi so v README. Lokalni dnevniki so v prezrti mapi `build/verifica
 
 Lokalni APK: `build/app/outputs/flutter-apk/app-debug.apk` (202.161.392 bajtov). Podpis je preverjen z apksigner (v2, en podpisnik). Običajni APK je ponovno nameščen na emulator in njegova aktivnost se uspešno zažene. Za povezan APK vpiši javno konfiguracijo in uporabi `flutter build apk --debug --dart-define-from-file=config.local.json`.
 
-[Gostovani zagon 46018722397](https://github.com/omarzdra/shiftMate/actions/runs/46018722397) je sprožen s push na commit `6a747fa82fde6c9d153039b8ad2f136dbf6f65d4`. Celotni zagon je uspešen: PostgreSQL job, formatiranje, analiza, 73 testov, gradnja APK in nalaganje artifactov. To potrjuje tudi gostovano gradnjo, ne potrjuje pa dejanske Supabase povezave. Dokumentacijski commit lahko sproži dodatni zagon z nespremenjeno kodo aplikacije.
+[Gostovani zagon 46018722397](https://github.com/omarzdra/shiftMate/actions/runs/46018722397) je sprožen s push na commit `6a747fa82fde6c9d153039b8ad2f136dbf6f65d4`. Celotni zagon je uspešen: PostgreSQL job, formatiranje, analiza, 73 testov, gradnja APK in nalaganje artifactov. To potrjuje tudi gostovano gradnjo, ne potrjuje pa dejanske Supabase povezave. Tudi [zagon 46020135210](https://github.com/omarzdra/shiftMate/actions/runs/46020135210) za dokumentacijski commit 5c877be je uspešen. PR in poznejši dokumentacijski commiti sprožijo dodatne zagone.
 
 Workflow uporablja obe repository Variables/Secrets `SUPABASE_URL` in `SUPABASE_PUBLISHABLE_KEY`. Brez obeh nastane tehnični APK z ustreznim `BUILD_STATUS.txt`; ena manjkajoča vrednost povzroči neuspešno gradnjo. Testi ne potrebujejo produkcijskih skrivnosti.
 
@@ -101,9 +101,9 @@ Veja: [feature/working-prototype](https://github.com/omarzdra/shiftMate/tree/fea
 - `6a747fa` – PostgreSQL in Flutter CI, APK artifact in konfiguracija okolja.
 - Dokumentacija se predaja v ločenem `docs:` commitu; točen seznam: `git log main..feature/working-prototype --oneline`.
 
-Pregledani so obstoječi Issues #1–#12. Ni bilo odprtih PR. Ustvarjanje draft PR in posodobitev Issue #9 prek vtičnika sta bila zavrnjena z HTTP 403. CLI ni prijavljen. Samodejni varnostni pregled je zavrnil predlog prenosa obstoječih Git poverilnic v CLI; predlagani ukaz se ni izvedel. **PR ni bil ustvarjen in noben Issue ni bil spremenjen ali zaprt.**
+Pregledani so obstoječi Issues #1–#12. Po uporabnikovi izrecni odobritvi je bil prek CLI ustvarjen [draft PR #13](https://github.com/omarzdra/shiftMate/pull/13), Issues #3–#12 pa so bili posodobljeni z napredkom, obsegom preverjanja in povezavo na PR. Označene so samo preverjene naloge; preostali Supabase in razširjeni kriteriji ostajajo odprti. Stanja obstoječih Issues niso bila spreminjana: #3 je bil že zaprt, #4–#12 ostajajo odprti. Main ni bil spremenjen.
 
-[Primerjalna povezava za PR](https://github.com/omarzdra/shiftMate/compare/main...feature/working-prototype?expand=1), [pripravljen opis](PR_DESCRIPTION.md), [konkretni predlogi za Issues #3–#12](GITHUB_HANDOFF.md). Vse širše naloge ostanejo odprte do preverjanja njihovih preostalih kriterijev.
+[Draft PR #13](https://github.com/omarzdra/shiftMate/pull/13), [opis PR](PR_DESCRIPTION.md), [pregled posodobljenih Issues #3–#12](GITHUB_HANDOFF.md). PR ostaja draft do dejanskega preverjanja Supabase integracije.
 
 ## Spremenjene in ustvarjene datoteke
 
@@ -138,6 +138,6 @@ Ti naslovi so rezervirani primeri in praviloma ne prejemajo e-pošte; za seed ji
 
 - Dejanski preizkus migracije, Auth/API, pravic in celotne poti v izbranem razvojnem Supabase projektu.
 - Prenos artifacta uspešnega gostovanega workflowa; pri povezani gradnji še vnos javne Supabase konfiguracije.
-- Odprtje draft PR in posodobitev obstoječih Issues prek uporabnikovega dovoljenega GitHub dostopa.
+- Po dejanskem Supabase preizkusu dopolnitev kriterijev v Issues in pregled draft PR #13 pred morebitnim združevanjem.
 
-Za odobritev uporabe GitHub CLI je potreben uporabnikov izrecni dostop oziroma samostojna prijava z `gh auth login`. To ni ovira za lokalno kodo, teste, APK ali objavljeno feature vejo.
+Uporaba obstoječe GitHub poverilnice v CLI je bila izrecno odobrena in omejena na zahtevana GitHub opravila. Poverilnica ni bila izpisana ali trajno shranjena; prijava CLI ni bila spremenjena.

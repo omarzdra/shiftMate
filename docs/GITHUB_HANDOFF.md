@@ -1,8 +1,8 @@
-# Predlogi posodobitev GitHub Issues
+# Posodobitve GitHub Issues in predaja PR
 
-Stanje 27. 11. 2026. Vtičnik omogoča branje, posodobitev Issue #9 in ustvarjanje PR pa je zavrnil z HTTP 403. Noben Issue ni bil spremenjen ali zaprt. Spodnje odstavke dodaj obstoječim nalogam; novih podvojenih Issues ne ustvarjaj.
+Stanje 27. 11. 2026. Po uporabnikovi izrecni odobritvi je bil ustvarjen draft PR #13 in posodobljeni so bili Issues #3–#12. Spodaj je vsebinski pregled dodanih posodobitev. Obstoječi opisi in kriteriji so ohranjeni; označene so samo preverjene naloge. Noben Issue ni bil zaprt ali ponovno odprt.
 
-Veja: `feature/working-prototype`. [Odpri Pull Request](https://github.com/omarzdra/shiftMate/compare/main...feature/working-prototype?expand=1), naslov: **feat: delujoči prototip ShiftMate z varnim razporejanjem**. Opis: [PR_DESCRIPTION.md](PR_DESCRIPTION.md). Uporabi draft in ne združuj v main, dokler ni preverjena dejanska integracija.
+Veja: `feature/working-prototype`. [Draft PR #13](https://github.com/omarzdra/shiftMate/pull/13): **feat: delujoči prototip ShiftMate z varnim razporejanjem**. Opis: [PR_DESCRIPTION.md](PR_DESCRIPTION.md). PR naj ostane draft do dejanskega Supabase preizkusa; main ni bil spremenjen.
 
 ## #3 – CI
 
@@ -44,11 +44,11 @@ Lokalna in oddaljena obvestila niso implementirana. Ohraniti odprto za naslednji
 
 Hive CE hrani zadnje pridobljene podatke in nastavitev gostote. Predpomnilnik je izoliran po projektu/uporabniku, ob odjavi se izbriše. Unit test z dejansko datoteko Hive preveri ponovno odprtje in izolacijo; provider testi preverjajo offline branje ter blokado sprememb. Filtriranje ur je implementirano. PDF/CSV in dvosmerna offline sinhronizacija nista implementirana; naloga ostaja odprta.
 
-## Ročni koraki
+## Preostali koraki
 
-1. Preveri in odpri draft PR prek zgornje primerjalne povezave.
-2. Dodaj ustrezne odstavke obstoječim Issues, poveži jih s številko PR in pusti nerešene kriterije odprte.
+1. Preglej obstoječi draft PR #13; novega PR za isto vejo ne ustvarjaj.
+2. Preglej že dodane posodobitve Issues #3–#12; nerešeni kriteriji ostajajo odprti.
 3. V GitHub Actions preveri oba joba in prenesi APK artifact z datoteko BUILD_STATUS.txt.
 4. Po dejanski demonstraciji z razvojnim Supabase dopolni rezultate in označi samo preverjene kriterije.
 
-Če želiš uporabiti CLI, se sam prijavi z `gh auth login`, nato `gh pr create --draft --base main --head feature/working-prototype --title "feat: delujoči prototip ShiftMate z varnim razporejanjem" --body-file docs/PR_DESCRIPTION.md`. Ta seja ni spreminjala tvoje CLI prijave in ni brala Git poverilnic.
+GitHub opravila so bila izvedena z uporabnikovo izrecno odobreno začasno uporabo obstoječe poverilnice. Poverilnica ni bila izpisana ali trajno shranjena; obstoječa prijava CLI ni bila spremenjena.
