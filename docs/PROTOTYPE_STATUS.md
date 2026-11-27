@@ -6,7 +6,7 @@ Datum: **27. 11. 2026**. Projekt: RVIR, UM FERI. Razvoj je samostojen; uporablje
 
 Iz začetne aplikacije z enim zaslonom je nastala implementacija prototipa za delodajalca in zaposlenega. **73 unit/widget testov je uspešnih, statična analiza je čista, Android debug APK se zgradi.** Integracijski test prijava–urnik–odjava je uspel na Android emulatorju s testnim repozitorijem. Migracija in varnostna pravila so preverjena v izoliranem PostgreSQL in v gostovanem CI PostgreSQL jobu.
 
-**To še ni potrjena celotna omrežna demonstracija s Supabase.** Med dostopnimi projekti ni bilo projekta ShiftMate. Nobena oddaljena baza ni bila spremenjena, noben plačljiv projekt ni bil ustvarjen in noben skrivni ključ ni bil dodan aplikaciji. Končni lokalni APK je tehnična gradnja brez konfiguracije in ob zagonu pokaže »Priprava povezave«.
+**Razvojni Supabase projekt shiftMate je zdaj konfiguriran.** Uporabljeni sta obe migraciji, SQL/RLS testi so prestali na dejanski bazi, Auth API vrne 200 in anonimno branje zaščitenih podatkov vrne 401. Lokalni povezani APK je zgrajen s konfiguracijo projekta. Celotna pot z registracijo, potrditvijo e-pošte in prijavljenimi uporabniki še ni preverjena. Podrobnosti in zagon: [SUPABASE_CONNECTION.md](SUPABASE_CONNECTION.md).
 
 ## Zahteve mejnika
 
@@ -14,7 +14,7 @@ Iz začetne aplikacije z enim zaslonom je nastala implementacija prototipa za de
 |---|---|
 | Osnovna struktura in navigacija | Implementirano; widget testi in integracijski test na Android emulatorju |
 | Pomemben del poslovnih funkcionalnosti | Implementirani obe vlogi, podjetje, vabila, izmene, razpoložljivost, urnik, ure in izračuni |
-| Začetna baza in spletna komunikacija | Shema/RLS/RPC in pravi Supabase klient implementirani; dejanski Auth/API še nepreverjen |
+| Začetna baza in spletna komunikacija | Migraciji uporabljeni na shiftMate; dejanski SQL/RLS, Auth health in blokada anonimnega REST dostopa preverjeni; celotni prijavljeni proces ostaja za preizkus |
 | Začetni avtomatizirani testi | 73/73 unit/widget; dodatno 1/1 integracijski test na napravi |
 | Statična analiza | `flutter analyze`: No issues found |
 | Avtomatizirana gradnja | Lokalni in gostovani debug APK zgrajena; APK artifact naložen |
@@ -46,7 +46,7 @@ Mejnik zahteva še dejanski razvojni Supabase projekt in demonstracijo omrežneg
 
 | Področje | Preostalo |
 |---|---|
-| Supabase Auth/API | Nastavitev razvojnega projekta in dejanski preizkus z vsaj dvema računoma |
+| Supabase Auth/API | Projekt je nastavljen; ostaja celoten uporabniški preizkus z vsaj dvema računoma in potrditvijo e-pošte |
 | Avtentikacija | Mobilni deep link za e-poštno potrditev in obnovitev gesla |
 | Upravljanje ekipe | Deaktivacija zaposlenih, več podjetij na račun |
 | Urnik | Koledarska dnevna/tedenska mreža; trajni osnutki in ločeno množično objavljanje |
@@ -74,8 +74,8 @@ Omejitev ur uporablja UTC tedne od ponedeljka 00:00; prikaz je v lokalnem času 
 | SQL v CI | Uspešno | PostgreSQL 17 service, Auth seam, dejanske vloge in RLS |
 | Demo SQL | Uspešno | Izolirani PostgreSQL: 5 članov, 11 izmen, 32 razpoložljivosti |
 | Workflow lint | Uspešno | actionlint 1.7.7 |
-| `flutter build apk --debug` | Uspešno | Tehnični APK brez Supabase povezave |
-| Dejanski Supabase Auth/Data API | **Ni izvedeno** | ShiftMate projekt ni konfiguriran |
+| `flutter build apk --debug --dart-define-from-file=config.local.json` | Uspešno | Povezani APK za projekt shiftMate |
+| Dejanski Supabase Auth/Data API | Auth health 200; zaščiteni REST zahtevki brez seje 401; SQL/RLS testi uspešni | shiftMate (`vmayutnfvhqveztgtudu`); celoten prijavljeni proces še ni preverjen |
 
 `dart format .` je bil izveden pred gradnjo. Po Gradle gradnji naleti na Windows napako `PathNotFoundException` v generirani dolgi poti `build/integration_test/.transforms/...`; izvorna koda se zato lokalno preverja z zgornjim enakovrednim izrecnim seznamom map. CI izvaja zahtevani `dart format --output=none --set-exit-if-changed .` pred gradnjo in je ta korak uspešno opravil. Lint pravil ali testov zaradi tega ni bilo izključenih.
 
@@ -112,14 +112,14 @@ Pregledani so obstoječi Issues #1–#12. Po uporabnikovi izrecni odobritvi je b
 - Poslovne storitve: `lib/services/validation.dart`, `scheduling_service.dart`, `dashboard_summary.dart`, `local_cache.dart`.
 - UI: `lib/screens/auth_screen.dart`, `editors.dart`, `workspace_screen.dart`, `scheduling_screen.dart`, `lib/widgets/common.dart`.
 - Testi: `test/fixtures.dart`, `domain_test.dart`, `scheduling_test.dart`, `scheduling_state_test.dart`, `app_state_test.dart`, `dashboard_test.dart`, `hive_cache_test.dart`, `layout_test.dart`, `widget_test.dart`, `integration_test/session_test.dart`.
-- Baza: `supabase/.gitignore`, `supabase/config.jsonc`, `supabase/migrations/20261127134209_prototype.sql`, `supabase/tests/auth_stub.sql`, `supabase/tests/rls.sql`, `supabase/demo.sql`.
+- Baza: `supabase/.gitignore`, `supabase/config.jsonc`, `supabase/migrations/20261127213651_prototype.sql`, `supabase/tests/auth_stub.sql`, `supabase/tests/rls.sql`, `supabase/demo.sql`; dodana je `supabase/migrations/20261127213859_complete_hosted_setup.sql` in konfiguracija zagona `.vscode/launch.json`.
 - Dokumentacija: `README.md`, `docs/PROTOTYPE_STATUS.md`, `docs/GITHUB_HANDOFF.md`, `docs/PR_DESCRIPTION.md`.
 
 Obstoječa uporabnikova sprememba `dokumentacija/prototipna_dokumentacija.md` (dodana povezava do repozitorija) je ostala nedotaknjena in ni vključena v nove commite.
 
 ## Ročna priprava in demonstracija
 
-1. Ustvari ločen razvojni Supabase projekt, uporabi migracijo in nastavi e-pošto/geslo ter potrditev naslova. `private` ne izpostavljaj v Data API.
+1. Uporabi že nastavljen razvojni Supabase projekt shiftMate in lokalno konfiguracijo. Migraciji sta že uporabljeni; ne izvajaj ju znova. E-poštna prijava in potrditev naslova sta omogočeni; `private` ni namenjen izpostavitvi v Data API.
 2. Nastavi `config.local.json` po `config.example.json` in zaženi povezano aplikacijo. Nikoli ne uporabljaj service_role ključa v Flutterju.
 3. Za demonstracijo iz nič registriraj delodajalca, potrdi e-pošto, se prijavi in ustvari podjetje. Povabi štiri zaposlene z njihovimi naslovi, pozicijami in postavkami; vsak naj se registrira, potrdi naslov in sprejme lastno kodo vabila.
 4. Vsak zaposleni naj doda razpoložljivost za naslednje dni. Delodajalec jo vidi pod Zaposleni → Razpoložljivost ekipe.
@@ -136,7 +136,7 @@ Ti naslovi so rezervirani primeri in praviloma ne prejemajo e-pošte; za seed ji
 
 ## Preostali pogoji za zaključek mejnika
 
-- Dejanski preizkus migracije, Auth/API, pravic in celotne poti v izbranem razvojnem Supabase projektu.
+- Celoten proces registracija–potrditev e-pošte–prijava–podjetje–urnik–evidenca prek aplikacije z dejanskimi testnimi predali. Migraciji, SQL/RLS in dosegljivost API-ja so že preverjeni na projektu shiftMate.
 - Prenos artifacta uspešnega gostovanega workflowa; pri povezani gradnji še vnos javne Supabase konfiguracije.
 - Po dejanskem Supabase preizkusu dopolnitev kriterijev v Issues in pregled draft PR #13 pred morebitnim združevanjem.
 

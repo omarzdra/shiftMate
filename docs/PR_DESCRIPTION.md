@@ -10,6 +10,6 @@ Preverjeno lokalno:
 - Postavitve renderirane pri širinah 390/1200 in povečavi besedila 1x/2x.
 - Workflow preverjen z actionlint; gostovani zagon 46018722397 je uspešen, vključno z APK artifactom.
 
-PR naj ostane draft: ločeni ShiftMate Supabase projekt še ni konfiguriran, zato dejanska Auth/API integracija in celotna demonstracija nista potrjeni. Integracijski test prijava–urnik–odjava na Android emulatorju je uspešen s testnim repozitorijem (1/1). Podrobni rezultati so v `docs/PROTOTYPE_STATUS.md`.
+PR naj ostane draft do celotne demonstracije z dejanskimi prijavljenimi uporabniki. Razvojni Supabase projekt shiftMate je povezan: obe migraciji sta uporabljeni, SQL/RLS testi prestali, Auth health vrne 200 in zaščiteni REST podatki brez seje vrnejo 401. Lokalni povezani APK je zgrajen; zagon je opisan v `docs/SUPABASE_CONNECTION.md`. Integracijski test prijava–urnik–odjava na Android emulatorju je uspešen s testnim repozitorijem (1/1). Podrobni rezultati so v `docs/PROTOTYPE_STATUS.md`.
 
-Povezano: #3, #4, #5, #6, #7, #8, #9, #10, #12. Issues naj se ne zaprejo samodejno. Obvestila, PDF/CSV, deaktivacija zaposlenih, naprednejši pogledi urnika in zgodovina popravkov ur ostanejo za naslednji mejnik. Nobena oddaljena baza ni bila spremenjena; main se ne združuje.
+Povezano: #3, #4, #5, #6, #7, #8, #9, #10, #12. Issues naj se ne zaprejo samodejno. Obvestila, PDF/CSV, deaktivacija zaposlenih, naprednejši pogledi urnika in zgodovina popravkov ur ostanejo za naslednji mejnik. Spremenjena je samo uporabnikova nova razvojna baza shiftMate; main se ne združuje.

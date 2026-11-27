@@ -2,7 +2,7 @@
 
 Mobilna aplikacija za mala podjetja, načrtovanje izmen, razpoložljivost in potrjevanje opravljenih ur. Projekt pri predmetu RVIR, UM FERI, 2026/2027. Samostojni razvijalec: Omar Zdralovic.
 
-Implementacija prototipa je v repozitoriju. **Oddaljeni Supabase projekt ShiftMate še ni konfiguriran; povezava s pravim Auth/API zato še ni potrjena.** APK brez konfiguracije varno prikaže »Priprava povezave«. Podrobni rezultati in omejitve: [stanje prototipa](docs/PROTOTYPE_STATUS.md).
+Implementacija prototipa je v repozitoriju. **Aplikacija je povezana z razvojnim Supabase projektom shiftMate.** Migraciji in RLS testi so uporabljeni oziroma preverjeni na dejanski bazi; Auth API se odziva. Za povezani zagon uporabi `flutter run --dart-define-from-file=config.local.json` ali VS Code konfiguracijo ShiftMate · Supabase. Podrobnosti: [povezava Supabase](docs/SUPABASE_CONNECTION.md). Celoten proces z dejanskimi prijavljenimi uporabniki še potrebuje preizkus. Podrobni rezultati in omejitve: [stanje prototipa](docs/PROTOTYPE_STATUS.md).
 
 ## Implementirane poti
 
@@ -69,11 +69,11 @@ Vsaka dodelitev na strežniku preveri pozicijo, razpoložljivost, počitek, prek
 ## Konfiguracija in lokalni zagon
 
 1. Namesti Flutter 3.47.7, Android SDK in JDK 17 ali združljiv JDK. Za lokalni Supabase potrebuješ Docker in Supabase CLI. Projekt nima lastnega strežnika Node.js.
-2. Ustvari **ločeni razvojni Supabase projekt ShiftMate**. Obstoječi nepovezani projekti niso bili spreminjani.
-3. Za novo prazno razvojno bazo uporabi [migracijo](supabase/migrations/20261127134209_prototype.sql): v Supabase SQL Editorju izvedi celotno datoteko ali z uradnim CLI najprej preveri `supabase link --help` in `supabase db push --help`, poveži pravi razvojni projekt ter uporabi migracije. Na obstoječi shemi najprej preglej konflikte. Skripta ne briše obstoječih tabel.
+2. Obstoječi razvojni projekt **shiftMate** ima referenco `vmayutnfvhqveztgtudu` in že uporabljeni migraciji. Za ta projekt začetne migracije ne izvajaj znova. Naslednja navodila veljajo tudi za pripravo drugega praznega razvojnega projekta; nepovezanih projektov ne spreminjaj.
+3. Za novo prazno razvojno bazo uporabi [migracijo](supabase/migrations/20261127213651_prototype.sql): v Supabase SQL Editorju izvedi celotno datoteko ali z uradnim CLI najprej preveri `supabase link --help` in `supabase db push --help`, poveži pravi razvojni projekt ter uporabi migracije. Na obstoječi shemi najprej preglej konflikte. Skripta ne briše obstoječih tabel.
 4. V Auth omogoči e-pošto/geslo in potrditev e-poštnega naslova. Nastavi ustrezni Site URL, kamor uporabnik prispe po potrditvi e-pošte. Po potrditvi se lahko ročno vrne v aplikacijo in prijavi; mobilni deep link za potrditev še ni implementiran.
 5. V Data API izpostavi samo `public` (in privzeti `graphql_public`, če ga potrebuješ), **ne `private`**. Migracija dodeli pravice tabelam in RPC; omogoči API projekta.
-6. Kopiraj `config.example.json` v prezrti `config.local.json` in vpiši URL ter javni publishable ključ. Obstoječi anon ključ je podprt prek `SUPABASE_ANON_KEY`. Nikoli ne uporabljaj `service_role` ali `sb_secret_` ključa v aplikaciji.
+6. Na tem računalniku je `config.local.json` že nastavljen za shiftMate. Na svežem klonu kopiraj `config.example.json` v prezrti `config.local.json` in vpiši URL ter javni publishable ključ. Obstoječi anon ključ je podprt prek `SUPABASE_ANON_KEY`. Nikoli ne uporabljaj `service_role` ali `sb_secret_` ključa v aplikaciji.
 
 ```bash
 flutter pub get

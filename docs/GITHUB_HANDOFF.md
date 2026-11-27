@@ -10,7 +10,7 @@ Workflow ima PostgreSQL preverjanje RLS, Flutter format, analizo, teste s pokrit
 
 ## #4 – Supabase in podatkovna baza
 
-Verzionirana migracija, modeli in dejanski Supabase API/RPC dostop so implementirani. SQL shema, izolacija podjetij, pravice, vabila, potrjevanje ur in atomarnost urnika so preverjeni v izoliranem PostgreSQL WASM z Auth seamom. Oddaljeni ShiftMate projekt še ni konfiguriran; Auth/API v njem še nista preverjena. Obstoječi tuji projekti niso bili spreminjani. Naloga ostaja odprta.
+Verzionirana migracija, modeli in dejanski Supabase API/RPC dostop so implementirani. SQL shema, izolacija podjetij, pravice, vabila, potrjevanje ur in atomarnost urnika so preverjeni v izoliranem PostgreSQL WASM z Auth seamom. Razvojni projekt shiftMate je zdaj povezan; obe migraciji sta uporabljeni. Gostovani SQL/RLS testi so uspešni, Auth health vrne 200, zaščiteni REST dostop brez seje 401. Celoten proces z dejansko registracijo in prijavo še ostaja za preizkus. Obstoječi tuji projekti niso bili spreminjani. Naloga ostaja odprta.
 
 ## #5 – Avtentikacija in uporabniške vloge
 
